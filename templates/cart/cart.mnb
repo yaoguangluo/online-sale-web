@@ -1,0 +1,175 @@
+
+{include file="goods/header.mnb"}
+     <section class="no-pad login-page fullscreen-element">      
+        <div class="background-image-holder">
+          <img class="background-image" alt="Poster Image For Mobiles" src="img/medical.jpg">
+        </div> 
+        
+        <div class="container align-vertical">
+          <div class="row">
+            
+            <div class="col-md-12 text-center">
+              
+              <form class="form-inline" role="form" methoed="get" action="search.php">
+                 <input type="text" size="30" class="form-control" id="input" name="input" placeholder='{$lang['language']['input']}'/>
+                </br> </br>
+                <button type="submit" class="btn btn-default"><font size="3" color="white">{$lang['language']['search']}</font></button>
+              </form>
+              <!--
+              <a target="_blank" href="#" class="btn btn-primary btn-white">Customize Minibuy</a>
+              <a href="#" class="btn btn-primary btn-filled" target="_blank">Purchase Minibuy</a>
+              -->
+            </div>
+          </div><!--end of row-->
+        </div><!--end of container-->
+      </section>
+ <a name="miaodian" id="miaodian"></a>
+ <div class="container text-center">    
+  <h3>Online Shopping</h3><br> 
+  <h3>{$lang['cart']['CartItemList']}</h3><br>
+  <div class="row">
+    {foreach from=$cartList key=k item=v}
+     <div id="hook" class="col-sm-6" id="forItem" style="border:5px solid #000; border-radius:22px;" >
+      <img src={$v->{'imgSmall'}} class="img-responsive center-block" style="border:2px black dashed; border-radius:12px;  height:120px" alt="Image">
+  
+                  <input type="hidden" name="language" value="{$_GET['language']}">
+                  <input type="hidden" name="iid" value="{$v->{'iid'}}">
+         <a href="item.php?iid={$v->{'iid'}}">{$lang['cart']['CheckItemInfo']}</a>
+         <div class="form-group">
+            <label for="new price" class="col-sm-5 control-label">{$lang['cart']['newPrice']}:</label>
+            <label for="new price" class="col-sm-5 control-label">${$v->{'newprice'}}</label>
+         </div>
+         <br>
+         <div class="form-group">
+            <label for="name" class="col-sm-5 control-label">{$lang['cart']['name']}:</label>
+             <div class="col-sm-5">
+              <input type="text" class="form-control" id="form1{$k}" name="form1{$k}" value="{$v->{'iname'}}">
+            </div>
+         </div>
+         <br>
+         <div class="form-group">
+            <label for="name" class="col-sm-5 control-label">{$lang['cart']['ename']}:</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="form1{$k}" name="form1{$k}" value="{$v->{'iename'}}">
+            </div>
+         </div>
+         <br>
+          <div class="form-group">
+            <label for="count" class="col-sm-5 control-label">{$lang['cart']['count']}</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="form{$k}" name="form{$k}" value="{$v->{'count'}}">
+            </div>
+         </div>
+         <br>
+                  <button  onclick="updateToCart('{$v->{'cartId'}}','{$_GET['key']}','form{$k}')"> {$lang['cart']['updateCart']}</button> 
+                  <button  onclick="deleteToCart('{$v->{'cartId'}}','{$_GET['key']}','{$_GET['email']}')">{$lang['cart']['deleteFromCart']}</button> 
+                
+         
+     </div>
+    {/foreach}
+  <script language="javascript">
+        function updateToCart(cartId,key,textId)
+        { 
+          alert("updateToCart");
+          
+          if(key=='')
+          {
+            //jump to login 
+            window.location.href='login.php'; // 跳转到B目录
+          }
+
+          //add to cart
+          var count= document.getElementById(textId).value;
+          //alert(count);
+          //alert(cartId);
+          //alert(key);
+          $.get("updateToCart.php","cartId="+cartId+"&key="+key+"&count="+count,function(data)
+                    {
+                    alert("updated");
+                    });                                
+        }
+        function deleteToCart(cartId,key,email)
+        { 
+          alert("deleteToCart");
+          //alert(cartId);
+          //alert(key);
+          if(key=='')
+          {
+            //jump to login 
+            window.location.href='login.php'; // 跳转到B目录
+          }
+          //add to cart
+          //alert({$_GET['currentPage']});
+          //alert({$currentPage});
+          //alert(email);
+          window.location.href="deleteToCart.php?cartId="+cartId+"&key="+key+"&currentPage="+{$currentPage}+"&link=cart.php&email="+email;
+        }
+  </script>
+  {$link}
+<div class="col-sm-4" style="border:5px solid #000; border-radius:22px;" >
+                  <br>{$lang['page']['totalpages']}:{$totalPage}
+                  <br>{$lang['page']['currentPages']}:{$currentPage}
+                  <br>
+                  <button  onclick="goPrevPage('{$_GET['cid']}','{$_GET['key']}','{$_GET['type']}','{$currentPage}','{$totalPage}')">PREV Page</button>
+                  <button  onclick="goNextPage('{$_GET['cid']}','{$_GET['key']}','{$_GET['type']}','{$currentPage}','{$totalPage}')">NEXT Page</button>
+                  <br>{$lang['page']['inputpagenumber']}:
+                  <input type="text"  id="pageInput" name="pageInput" value="{$currentPage}">
+                  <br>
+                  <button onclick="goPage('{$_GET['cid']}','{$_GET['key']}','{$_GET['type']}')"> {$lang['button']['ClickandGotoPage']}</button>
+</div>
+ 
+<script>
+        function goPage(cid,key,type)
+        { 
+          alert("goPage");
+          var page= document.getElementById("pageInput").value;
+          //alert(page);
+          //alert(key);
+           //alert("{$email}");
+          window.location.href="cart.php?currentPage="+page+"&language={$_GET['language']}&link=cart.php&key="+key+"&email={$email}"
+        }
+
+        function goPrevPage(cid,key,type,page,total)
+        { 
+          alert("goPrevPage");
+          page=page-1;
+          if(page<=0)
+          {
+            page=0;
+          }
+          //alert(page);
+          //alert(key);
+          window.location.href="cart.php?currentPage="+page+"&language={$_GET['language']}&link=cart.php&key="+key+"&email={$email}"
+
+        }
+         function goNextPage(cid,key,type,page,total)
+        { 
+          alert("goNextPage");
+          page=page+1;
+          if(page>=total)
+          {
+            page=total;
+          }
+          //alert(page);
+          //alert(key);
+           window.location.href="cart.php?currentPage="+page+"&language={$_GET['language']}&link=cart.php&key="+key+"&email={$email}"
+
+        }
+
+
+
+
+
+  </script>
+  
+<div class="col-sm-4" style="border:5px solid #000; border-radius:22px;" >
+ <button class="btn btn-primary login-button btn-filled btn-xs" onclick="pay('{$_GET['key']}','{$email}','{$_GET['language']}','0')">{$lang['button']['PayforCart']}</button> 
+ <br>
+ <a class="btn btn-primary btn-black" href="checkPay.php?currentPage=0&language={$_GET['language']}&link=checkPay.php&key={$key}&email={$email}">{$lang['button']['CheckPayInfo']}</a>
+
+</div>
+  </div>
+</div><br>
+   
+ 
+{include file="goods/footer.mnb"}

@@ -1,0 +1,178 @@
+{include file="goods/header.mnb"}
+
+     <section class="no-pad login-page fullscreen-element">      
+        <div class="background-image-holder">
+          <img class="background-image" alt="Poster Image For Mobiles" src="img/medical.jpg">
+        </div> 
+        
+        <div class="container align-vertical">
+          <div class="row">  
+            <div class="col-md-12 text-center">
+              <form class="form-inline" role="form" methoed="get" action="search.php">
+                 <input type="text" size="30" class="form-control" id="input" name="input" placeholder='{$lang['language']['input']}'/>
+                </br> </br>
+                <button type="submit" class="btn btn-default"><font size="3" color="white">{$lang['language']['search']}</font></button>
+              </form>
+              <!--
+              <a target="_blank" href="#" class="btn btn-primary btn-white">Customize Minibuy</a>
+              <a href="#" class="btn btn-primary btn-filled" target="_blank">Purchase Minibuy</a>
+              -->
+            </div>
+          </div><!--end of row-->
+        </div><!--end of container-->
+      </section>
+
+ <a name="miaodian" id="miaodian"></a>
+ <div class="container text-center">    
+  <h3>Online Shopping</h3><br> 
+  <h3>{$lang['payInfo']['PayInfo']}</h3><br>
+  <div class="row">
+    {foreach from=$payList key=k item=v}
+     <div class="col-sm-10" style="border:5px solid #000" >
+         <div class="form-group">
+            <label for="time" class="col-sm-2 control-label">{$lang['payInfo']['Time']}</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="time{$k}" name="time{$k}" value="{$v->{'time'}}">
+            </div>
+         </div>
+         <div class="form-group">
+            <label for="paypalId" class="col-sm-2 control-label">{$lang['payInfo']['paypalId']}</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="paypalId{$k}" name="paypalId{$k}" value="{$v->{'paypalId'}}">
+            </div>
+         </div>
+
+         <div class="form-group">
+            <label for="total" class="col-sm-2 control-label">paypalId {$lang['payInfo']['total']}</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="total{$k}" name="total{$k}" value="${$v->{'total'}}">
+            </div>
+         </div>
+<!--
+         <div class="form-group">
+            <label for="payInfo" class="col-sm-2 control-label">{$lang['payInfo']['payInfo']}</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="payInfo{$k}" name="payInfo{$k}" value="{$v->{'payInfo'}}">
+            </div>
+         </div>
+-->
+             {foreach from=$v->{'payInfo'} key=k1 item=v1}
+              <div class="form-group"> 
+                <label for="payInfo" class="col-sm-2 control-label">{$lang['payInfo']['payInfo']}</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="payInfo{$k1}" name="payInfo{$k1}" value="{$v1}">
+                </div>
+              </div>
+             {/foreach}
+
+        <div class="form-group">
+            <label for="vid" class="col-sm-2 control-label">vendor ID</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="vid{$k}" name="vid{$k}" value="{$v->{'vid'}}">
+            </div>
+         </div>
+        <div class="form-group">
+            <label for="vtotal" class="col-sm-2 control-label">pay fee</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="vtotal{$k}" name="vtotal{$k}" value="${$v->{'vtotal'}}">
+            </div>
+         </div>
+         <div class="form-group">
+            <label for="vtax" class="col-sm-2 control-label">pay tax</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="vtax{$k}" name="vtax{$k}" value="${$v->{'vtax'}}">
+            </div>
+         </div>
+        <div class="form-group">
+            <label for="vship" class="col-sm-2 control-label">pay ship</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="vship{$k}" name="vship{$k}" value="${$v->{'vship'}}">
+            </div>
+         </div>
+
+         <div class="form-group">
+            <label for="status" class="col-sm-2 control-label">{$lang['payInfo']['status']}</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="status{$k}" name="status{$k}" value="{$v->{'status'}}">
+            </div>
+         </div>
+
+         <div class="form-group">
+            <label for="sendWay" class="col-sm-2 control-label">{$lang['payInfo']['sendWay']}</label>
+            <div class="col-sm-10">
+              {if "1"==$v->{'sendWay'}}
+              <input type="text" class="form-control" id="sendWay{$k}" name="sendWay{$k}" value="UPS">
+              {elseif "2"==$v->{'sendWay'}}
+              <input type="text" class="form-control" id="sendWay{$k}" name="sendWay{$k}" value="USPS">
+              {else}
+              <input type="text" class="form-control" id="sendWay{$k}" name="sendWay{$k}" value="{$v->{'sendWay'}}">
+              {/if}
+            </div>
+         </div>
+
+         <div class="form-group">
+            <label for="packageNumber" class="col-sm-2 control-label">{$lang['payInfo']['packageNumber']}</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="packageNumber{$k}" name="packageNumber{$k}" value="{$v->{'packageNumber'}}">
+            </div>
+         </div>
+         
+         <div class="form-group">
+            <label for="shippingAddress" class="col-sm-2 control-label">{$lang['pay']['shippingAddress']}</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="shippingAddress{$k}" name="shippingAddress{$k}" value="{$v->{'shippingAddress'}}">
+            </div>
+         </div>
+     </div>
+    {/foreach}
+<div class="col-sm-4" style="border:1px solid #00F" >
+                  <br>{$lang['page']['totalpages']}:{$totalPage}
+                  <br>{$lang['page']['currentPages']}:{$currentPage}
+                  <br>
+                  <button  onclick="goPrevPage('{$_GET['cid']}','{$_GET['key']}','{$_GET['type']}','{$currentPage}','{$totalPage}')">go PREV Page</button>
+                  <button  onclick="goNextPage('{$_GET['cid']}','{$_GET['key']}','{$_GET['type']}','{$currentPage}','{$totalPage}')">go NEXT Page</button>
+                  <br>{$lang['page']['inputpagenumber']}:
+                  <input type="text"  id="pageInput" name="pageInput" value="{$currentPage}">
+                  <br>
+                  <button  onclick="goPage('{$_GET['cid']}','{$_GET['key']}','{$_GET['type']}')"> {$lang['button']['ClickandGotoPage']}</button>
+ </div>
+<script>
+        function goPage(cid,key,type)
+        { 
+          alert("goPage");
+          var page= document.getElementById("pageInput").value;
+          alert(page);
+          //alert(key);
+          window.location.href="checkPay.php?currentPage="+page+"&language={$_GET['language']}&link=items.php&key="+key+"&email={$email}"
+
+        }
+         function goPrevPage(cid,key,type,page,total)
+        { 
+          alert("goPrevPage");
+          page=page-1;
+          if(page<=0)
+          {
+            page=0;
+          }
+          //alert(page);
+          //alert(key);
+         window.location.href="checkPay.php?currentPage="+page+"&language={$_GET['language']}&link=items.php&key="+key+"&email={$email}"
+
+        }
+         function goNextPage(cid,key,type,page,total)
+        { 
+          alert("goNextPage");
+          page=page+1;
+          if(page>=total)
+          {
+            page=total;
+          }
+          //alert(page);
+          //alert(key);
+         window.location.href="checkPay.php?currentPage="+page+"&language={$_GET['language']}&link=items.php&key="+key+"&email={$email}"
+
+        }
+</script>
+ </div>
+</div>
+{include file="goods/footer.mnb"}

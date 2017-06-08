@@ -1,0 +1,57 @@
+
+      
+     
+     
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+              <i class="icon icon-jumbo social_twitter"></i>
+              <div id="tweets" data-widget-id="492085717044981760">
+              
+              </div>
+              <p>
+                Follow us <strong><a href="http://www.comforx.us">www.comforx.us</a></strong> for more awesome updates
+
+              </p>
+            </div>
+          </div><!--end of row-->
+        </div><!--end of container-->
+      </section>
+      
+    </div>
+        <div class="footer-container">
+        
+            <footer class="short bg-secondary-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <span class="sub">© Copright 2014-2016 comforx</span>
+                            <ul>
+                                <li><a href="#">Email:project@comforx.us</a></li>
+                                <li><a href="#">Privacy &amp; Security Statement</a></li>
+                                <li><a href="#">Tel:(626)476-5378</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-sm-2 text-right">
+                            <ul class="social-icons">
+                                <li>
+                                    <a href="#">
+                                        <i class="icon social_twitter"></i>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#">
+                                        <i class="icon social_facebook"></i>
+                                    </a>
+                                </li>
+                            </ul>   
+                        </div>
+                    </div><!--end of row-->
+                </div><!--end of container-->
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,180 @@
+{include file="goods/header.mnb"}
+
+     <section class="no-pad login-page fullscreen-element">      
+        <div class="background-image-holder">
+          <img class="background-image" alt="Poster Image For Mobiles" src="img/medical.jpg">
+        </div> 
+        
+        <div class="container align-vertical">
+          <div class="row">  
+            <div class="col-md-12 text-center">
+              <form class="form-inline" role="form" methoed="get" action="search.php">
+                 <input type="text" size="30" class="form-control" id="input" name="input" placeholder='{$lang['language']['input']}'/>
+                </br> </br>
+                <button type="submit" class="btn btn-default"><font size="3" color="white">{$lang['language']['search']}</font></button>
+              </form>
+              <!--
+              <a target="_blank" href="#" class="btn btn-primary btn-white">Customize Minibuy</a>
+              <a href="#" class="btn btn-primary btn-filled" target="_blank">Purchase Minibuy</a>
+              -->
+            </div>
+          </div><!--end of row-->
+        </div><!--end of container-->
+      </section>
+
+ <a name="miaodian" id="miaodian"></a>
+ <div class="container text-center">    
+  <h3>Online Shopping</h3><br>  
+  <h3>{$lang['payInfo']['PayInfo']}</h3><br>
+  <div class="row">
+    {foreach from=$payList key=k item=v}
+     <div class="col-sm-10" style="border:1px solid #00F" >
+         <div class="form-group">
+            <label for="time" class="col-sm-2 control-label">{$lang['payInfo']['Time']}</label>
+            <label for="time" class="col-sm-2 control-label">{$v->{'time'}}</label>
+         </div>
+  <br>
+         <div class="form-group">
+            <label for="paypalId" class="col-sm-2 control-label">{$lang['payInfo']['paypalId']}</label>
+            <label for="paypalId" class="col-sm-2 control-label">{$v->{'paypalId'}}</label>
+         </div>
+  <br>
+         <div class="form-group">
+            <label for="total" class="col-sm-2 control-label">{$lang['payInfo']['total']} for paypal record</label>
+             <label for="total" class="col-sm-2 control-label">${$v->{'total'}}</label>
+         </div>
+<br>
+<br>
+
+             {foreach from=$v->{'payInfo'} key=k1 item=v1}
+              <div class="form-group"> 
+                <label for="payInfo" class="col-sm-2 control-label">{$lang['payInfo']['payInfo']}</label>
+                <label for="paypalId" class="col-sm-6 control-label">{$v1}</label>
+              </div>
+                <br>
+             {/foreach}
+<br>
+<br>
+ <div class="form-group">
+            <label for="status" class="col-sm-2 control-label">total for this transaction</label>
+            <label for="status" class="col-sm-2 control-label">${$v->{'vtotal'}}</label>
+         </div>
+<br>
+<br>
+<div class="form-group">
+            <label for="status" class="col-sm-2 control-label">tax for this transaction</label>
+            <label for="status" class="col-sm-2 control-label">${$v->{'vtax'}}</label>
+         </div>
+<br>
+<br>
+<div class="form-group">
+            <label for="status" class="col-sm-2 control-label">ship for this transaction</label>
+            <label for="status" class="col-sm-2 control-label">${$v->{'vship'}}</label>
+         </div>
+<br>
+<br>
+
+         <div class="form-group">
+            <label for="status" class="col-sm-2 control-label">{$lang['payInfo']['status']}</label>
+            <label for="status" class="col-sm-2 control-label">{$v->{'status'}}</label>
+         </div>
+<br>
+         <div class="form-group">
+            <label for="sendWay" class="col-sm-2 control-label">{$lang['payInfo']['sendWay']}</label>
+            <select id="sendWay{$k}" name="sendWay{$k}" class="col-sm-2">
+                <option value ="1">UPS</option>
+                <option value ="2">USPS</option>
+            </select>
+         </div>
+ <br>
+         <div class="form-group">
+            <label for="packageNumber" class="col-sm-2 control-label">{$lang['payInfo']['packageNumber']}</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="packageNumber{$k}" name="packageNumber{$k}" value="{$v->{'packageNumber'}}">
+            </div>
+         </div>
+ <br>
+         <div class="form-group">
+            <label for="shippingAddress" class="col-sm-2 control-label">{$lang['pay']['shippingAddress']}</label>
+            <label for="shippingAddress" class="col-sm-6 control-label">{$v->{'shippingAddress'}}</label>
+         </div>
+         <button  onclick="update('{$key}','{$k}','{$v->{'paypalId'}}')">UPDATE</button>
+
+
+     </div>
+    {/foreach}
+<div class="col-sm-4" style="border:1px solid #00F" >
+                  <br>{$lang['page']['totalpages']}:{$totalPage}
+                  <br>{$lang['page']['currentPages']}:{$currentPage}
+                  <br>
+                  <button  onclick="goPrevPage('{$key}','{$currentPage}','{$totalPage}')">go PREV Page</button>
+                  <button  onclick="goNextPage('{$key}','{$currentPage}','{$totalPage}')">go NEXT Page</button>
+                  <br>{$lang['page']['inputpagenumber']}:
+                  <input type="text"  id="pageInput" name="pageInput" value="{$currentPage}">
+                  <br>
+                  <button  onclick="goPage('{$key}')"> {$lang['button']['ClickandGotoPage']}</button>
+</div>
+<script>
+        function goPage(key)
+        { 
+          alert("goPage");
+          var page= document.getElementById("pageInput").value;
+          alert(page);
+          //alert(key);
+          window.location.href="checkPayBack.php?currentPage="+page+"&language={$_GET['language']}&link=items.php&key="+key+"&email={$email}"
+
+        }
+        function goPrevPage(cid,key,type,page,total)
+        { 
+          alert("goPrevPage");
+          page=page-1;
+          if(page<=0)
+          {
+            page=0;
+          }
+          //alert(page);
+          //alert(key);
+          window.location.href="checkPayBack.php?currentPage="+page+"&language={$_GET['language']}&link=items.php&key="+key+"&email={$email}"
+        }
+         function goNextPage(cid,key,type,page,total)
+        { 
+          alert("goNextPage");
+          page=page+1;
+          if(page>=total)
+          {
+            page=total;
+          }
+          //alert(page);
+          //alert(key);
+          window.location.href="checkPayBack.php?currentPage="+page+"&language={$_GET['language']}&link=items.php&key="+key+"&email={$email}"
+        }
+
+       function update(key,k,paypalId)
+        { 
+          alert("update package number");
+          if(key=='')
+          {
+            //jump to login 
+            window.location.href='loginBack.php'; // 跳转到B目录
+          }
+          //add to cart
+         // alert(key);
+          var sendWay= document.getElementById("sendWay"+k).value;
+         // alert(sendWay);
+          var packageNumber= document.getElementById("packageNumber"+k).value;
+          //alert(packageNumber);
+          packageNumber=encodeURIComponent(packageNumber);
+          //alert(packageNumber);
+         // alert(paypalId);
+          paypalId=encodeURIComponent(paypalId);
+          $.get("updatePay.php","sendWay="+sendWay+"&key="+key+"&packageNumber="+packageNumber+"&paypalId="+paypalId,function(data)
+                    {
+                       alert("updated");
+                    });
+
+        }
+
+</script>
+ </div>
+</div>
+{include file="goods/footer.mnb"}

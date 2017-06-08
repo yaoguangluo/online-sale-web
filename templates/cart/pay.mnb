@@ -1,0 +1,372 @@
+{include file="goods/header.mnb"}
+     <section class="no-pad login-page fullscreen-element">      
+        <div class="background-image-holder">
+          <img class="background-image" alt="Poster Image For Mobiles" src="img/medical.jpg">
+        </div> 
+        
+        <div class="container align-vertical">
+          <div class="row">  
+            <div class="col-md-12 text-center">
+             <form class="form-inline" role="form" methoed="get" action="search.php">
+                <input type="text" size="30" class="form-control" id="input" name="input" placeholder='{$lang['language']['input']}'/>
+                </br> </br>
+                <button type="submit" class="btn btn-default"><font size="3" color="white">{$lang['language']['search']}</font></button>
+              </form>
+              <!--
+              <a target="_blank" href="#" class="btn btn-primary btn-white">Customize Minibuy</a>
+              <a href="#" class="btn btn-primary btn-filled" target="_blank">Purchase Minibuy</a>
+              -->
+            </div>
+          </div><!--end of row-->
+        </div><!--end of container-->
+      </section>
+
+ <a name="miaodian" id="miaodian"></a>
+ <div class="container text-center">    
+  <h3>Online Shopping</h3><br>  
+  <h3>{$lang['pay']['PayInfo']}</h3><br>
+  <div class="row">
+     <div class="col-sm-13" style="border:1px solid #00F" >
+            <br>
+            {foreach from=$payInfo key=k1 item=v1}
+              <div class="form-group"> 
+                <label for="payInfo" class="col-sm-2 control-label">{$lang['payInfo']['payInfo']}</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="payInfo{$k1}" name="payInfo{$k1}" value="{$v1}">
+                </div>
+              </div>
+             {/foreach}
+
+            <br>
+            {$lang['pay']['subTotal']}:${$subTotal}
+            <br>
+            {$lang['pay']['Tax']}:${$tax}
+            <br>
+            {$lang['pay']['Shipfee']}:${$ship}
+            <br>
+            {$lang['pay']['Total']}:${$total}
+     </div>
+     
+    {foreach from=$cardList key=k item=v}
+     <div class="col-sm-13" style="border:5px solid #000" >
+<!--<form class="form-horizontal">-->
+                  {$lang['pay']['CardInfo']}:{$k}
+<div class="form-group">
+    <label for="cardNumber{$k}" class="col-sm-2 control-label">{$lang['pay']['cardNumber']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="cardNumber{$k}" name="cardNumber{$k}"  value="{$v->{'cardNumber'}}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cardType{$k}" class="col-sm-2 control-label">{$lang['pay']['cardType']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="cardType{$k}" name="cardType{$k}" value="{$v->{'cardType'}}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="address{$k}" class="col-sm-2 control-label">{$lang['pay']['address']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="address{$k}"  name="address{$k}" value="{$v->{'address'}}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="city{$k}" class="col-sm-2 control-label">{$lang['pay']['city']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="city{$k}" value="{$v->{'city'}}">
+    </div>
+  </div>
+ <div class="form-group">
+    <label for="state{$k}" class="col-sm-2 control-label">{$lang['pay']['state']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="state{$k}" value="{$v->{'state'}}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="countryCode{$k}" class="col-sm-2 control-label">{$lang['pay']['countryCode']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="countryCode{$k}" value="{$v->{'countryCode'}}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="postalCode{$k}" class="col-sm-2 control-label">{$lang['pay']['postalCode']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="postalCode{$k}" value="{$v->{'postalCode'}}">
+    </div>
+  </div>
+   <div class="form-group">
+    <label for="expireMonth{$k}" class="col-sm-2 control-label">{$lang['pay']['expireMonth']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="expireMonth{$k}" value="{$v->{'expireMonth'}}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="expireYear{$k}" class="col-sm-2 control-label">{$lang['pay']['expireYear']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="expireYear{$k}" value="{$v->{'expireYear'}}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="firstName{$k}" class="col-sm-2 control-label">{$lang['pay']['firstName']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="firstName{$k}" value="{$v->{'firstName'}}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName{$k}" class="col-sm-2 control-label">{$lang['pay']['lastName']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="lastName{$k}" value="{$v->{'lastName'}}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="currency{$k}" class="col-sm-2 control-label">{$lang['pay']['currency']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="currency{$k}" value="USD">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cvv{$k}" class="col-sm-2 control-label">{$lang['pay']['cvv']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="cvv{$k}" value="">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="shippingAddress{$k}" class="col-sm-2 control-label">{$lang['pay']['shippingAddress']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="shippingAddress{$k}" placeholder="sample: Jhon Dao, 10505 valley blvd,#316, El Monte CA USA 91731, tel:1(626)476-5378">
+    </div>
+  </div>
+
+
+                  <button  onclick="doPayment('{$k}','{$payInfo}','{$subTotal}','{$tax}','{$ship}','{$total}','{$_GET['key']}','{$_GET['email']}','{$_GET['language']}')">{$lang['pay']['Usethiscardtopay']}</button>
+  
+        <!--</form>-->
+     </div>
+    {/foreach}
+
+    <div class="col-sm-13" style="border:5px solid #000" >
+<!--<form class="form-horizontal">-->
+{$lang['pay']['MakeaNewCardtoPay']}
+  <div class="form-group">
+    <label for="cardNumber" class="col-sm-2 control-label">{$lang['pay']['cardNumber']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="cardNumber9999" name="cardNumber9999"  value="">
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="cardType" class="col-sm-2 control-label">{$lang['pay']['cardType']}</label>
+    
+      <select id="cardType9999" name="cardType9999" class="col-sm-5">
+                <option value ="visa">VISA</option>
+                <option value ="mastercard">MASTER CARD</option>
+                <option value ="discover">DISCOVER</option>
+                <option value ="american express">AMERICAN EXPRESS</option>
+                <option value ="eurocard">EUROCARD</option>
+                <option value ="amex">AMEX</option>
+                <option value ="delta">DELTA</option>
+                <option value ="maestro">MAESTRO</option>
+      </select>
+  </div><br>
+  <div class="form-group">
+    <label for="address" class="col-sm-2 control-label">{$lang['pay']['address']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="address9999" value="">
+    </div>
+  </div><br>
+  <div class="form-group">
+    <label for="city" class="col-sm-2 control-label">{$lang['pay']['city']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="city9999" value="">
+    </div>
+  </div><br>
+
+ <div class="form-group">
+    <label for="state" class="col-sm-2 control-label">{$lang['pay']['state']}</label>
+      <select id="state9999" name="state9999" class="col-sm-5">
+                <option value ="AL">AL</option>
+                <option value ="AK">AK</option>
+                <option value ="AZ">AZ</option>
+                <option value ="AR">AR</option>
+                <option value ="CA">CA</option>
+                <option value ="CO">CO</option>
+                <option value ="CT">CT</option>
+                <option value ="DE">DE</option>
+                <option value ="DC">DC</option>
+                <option value ="FL">FL</option>
+                <option value ="GA">GA</option>
+                <option value ="HI">HI</option>
+                <option value ="ID">ID</option>
+                <option value ="IL">IL</option>
+                <option value ="IN">IN</option>
+                <option value ="IA">IA</option>
+                <option value ="KS">KS</option>
+                <option value ="KY">KY</option>
+                <option value ="LA">LA</option>
+                <option value ="ME">ME</option>
+                <option value ="MD">MD</option>
+                <option value ="MA">MA</option>
+                <option value ="MI">MI</option>
+                <option value ="MN">MN</option>
+                <option value ="MS">MS</option>
+                <option value ="MO">MO</option>
+                <option value ="MT">MT</option>
+                <option value ="NE">NE</option>
+                <option value ="NV">NV</option>
+                <option value ="NH">NH</option>
+                <option value ="NJ">NJ</option>
+                <option value ="NM">NM</option>
+                <option value ="NY">NY</option>
+                <option value ="NC">NC</option>
+                <option value ="ND">ND</option>
+                <option value ="OH">OH</option>
+                <option value ="OK">OK</option>
+                <option value ="OR">OR</option>
+                <option value ="AL">AL</option>
+                <option value ="PA">PA</option>
+                <option value ="RI">RI</option>
+                <option value ="SC">SC</option>
+                <option value ="SD">SD</option>
+                <option value ="TN">TN</option>
+                <option value ="TX">TX</option>
+                <option value ="UT">UT</option>
+                <option value ="VT">VT</option>
+                <option value ="VA">VA</option>
+                <option value ="WA">WA</option>
+                <option value ="WV">WV</option>
+                <option value ="WI">WI</option>
+                <option value ="WY">WY</option>
+                <option value ="AS">AS</option>
+                <option value ="GU">GU</option>
+                <option value ="MP">MP</option>
+                <option value ="PR">PR</option>
+                <option value ="VI">VI</option>
+                <option value ="UM">UM</option>
+                <option value ="FM">FM</option>
+                <option value ="MH">MH</option>
+                <option value ="PW">PW</option>
+      </select>
+  </div><br>
+  <div class="form-group">
+    <label for="countryCode" class="col-sm-2 control-label">{$lang['pay']['countryCode']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="countryCode9999" value="US">
+    </div>
+  </div><br>
+  <div class="form-group">
+    <label for="postalCode" class="col-sm-2 control-label">{$lang['pay']['postalCode']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="postalCode9999" value="">
+    </div>
+  </div><br>
+   <div class="form-group">
+    <label for="expireMonth" class="col-sm-2 control-label">{$lang['pay']['expireMonth']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="expireMonth9999" value="">
+    </div>
+  </div><br>
+  <div class="form-group">
+    <label for="expireYear" class="col-sm-2 control-label">{$lang['pay']['expireYear']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="expireYear9999" value="">
+    </div>
+  </div><br>
+  <div class="form-group">
+    <label for="firstName" class="col-sm-2 control-label">{$lang['pay']['firstName']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="firstName9999" value="">
+    </div>
+  </div><br>
+  <div class="form-group">
+    <label for="lastName" class="col-sm-2 control-label">{$lang['pay']['lastName']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="lastName9999" value="">
+    </div>
+  </div><br>
+  <div class="form-group">
+    <label for="currency" class="col-sm-2 control-label">{$lang['pay']['currency']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="currency9999" value="USD">
+    </div>
+  </div><br>
+  <div class="form-group">
+    <label for="cvv" class="col-sm-2 control-label">{$lang['pay']['cvv']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="cvv9999" value="">
+    </div>
+  </div><br>
+ <div class="form-group">
+    <label for="shippingAddress" class="col-sm-2 control-label">{$lang['pay']['shippingAddress']}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="shippingAddress9999" placeholder="sample: Jhon Dao, 10505 valley blvd,#316, El Monte CA USA 91731, tel:1(626)476-5378">
+    </div>
+  </div><br>
+
+                  <button  onclick="doPayment('9999','{$payInfo}','{$subTotal}','{$tax}','{$ship}','{$total}','{$_GET['key']}','{$_GET['email']}','{$_GET['language']}')">{$lang['pay']['Usethiscardtopay']}</button>
+
+       <!-- </form>-->
+     </div>
+
+<div class="col-sm-4" style="border:1px solid #00F" >
+                  <br>{$lang['page']['totalpages']}:{$totalPage}
+                  <br>{$lang['page']['currentPages']}:{$currentPage}
+                  <br>
+                  <button  onclick="goPrevPage('{$email}','{$_GET['key']}','{$_GET['language']}','{$currentPage}','{$totalPage}')">go PREV Page</button>
+                  <button  onclick="goNextPage('{$email}','{$_GET['key']}','{$_GET['language']}','{$currentPage}','{$totalPage}')">go NEXT Page</button>
+                  <br>{$lang['page']['inputpagenumber']}:
+                  <input type="text"  id="pageInput" name="pageInput" value="{$currentPage}">
+                  <br>
+                  <button  class="btn btn-primary login-button btn-xs" onclick="goPage('{$email}','{$_GET['key']}','{$_GET['language']}')"> {$lang['button']['ClickandGotoPage']}</button>
+</div>
+ 
+<script>
+        function goPage(email,key,language)
+        { 
+          alert("goPage");
+          var page= document.getElementById("pageInput").value;
+          //alert(page);
+          //alert(key);
+          // alert(email);
+           pay(key,email,language,page);
+          //window.location.href="pay.php?currentPage="+page+"&language={$_GET['language']}&link=cart.php&key="+key+"&email={$email}"
+        }
+
+         function goPrevPage(email,key,language,page,total)
+        { 
+          alert("goPrevPage");
+          page=page-1;
+          if(page<=0)
+          {
+            page=0;
+          }
+          //alert(page);
+          //alert(key);
+          pay(key,email,language,page);
+        }
+         function goNextPage(email,key,language,page,total)
+        { 
+          alert("goNextPage");
+          page=page+1;
+          if(page>=total)
+          {
+            page=total;
+          }
+          //alert(page);
+          //alert(key);
+         pay(key,email,language,page);
+        }
+  </script>
+
+
+
+
+ </div>
+</div>
+ 
+
+
+
+
+
+
+
+{include file="goods/footer.mnb"}

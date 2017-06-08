@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.google.com/schemas/sitemap/0.9">
+	<sitemap>
+		<loc>
+			http://web.comforx.us/Sitemap/USA/comforx_sitemap_store01.xml.gz
+		</loc>
+		<lastmod>2016-08-02</lastmod>
+	</sitemap>
+    <sitemap>
+        <loc>
+            http://web.comforx.us/Sitemap/USA/comforx_sitemap_store07.xml.gz
+        </loc>
+        <lastmod>2016-08-02</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>
+            http://web.comforx.us/Sitemap/USA/comforx_sitemap_store08.xml.gz
+        </loc>
+        <lastmod>2016-08-02</lastmod>
+    </sitemap>
+</sitemapindex>

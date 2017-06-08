@@ -1,0 +1,112 @@
+
+{include file="goods/header.mnb"}
+
+
+      <section class="no-pad login-page fullscreen-element">      
+        <div class="background-image-holder">
+          <img class="background-image" alt="Poster Image For Mobiles" src="img/medical.jpg">
+        </div> 
+      <!--
+<div class="video-wrapper">
+              <video autoplay="" muted="" loop="">
+                <source src="video/video.webm" type="video/webm">
+              </video>
+            </div>
+-->
+        
+        <div class="container align-vertical">
+          <div class="row">
+            
+            <div class="col-md-12 text-center">
+              
+              <form class="form-inline" role="form" methoed="get" action="search.php">
+                 <input type="text" size="30" class="form-control" id="input" name="input" placeholder='{$lang['language']['input']}'/>
+                </br> </br>
+                <button type="submit" class="btn btn-default"><font size="3" color="white">{$lang['language']['search']}</font></button>
+              </form>
+              <!--
+              <a target="_blank" href="#" class="btn btn-primary btn-white">Customize Minibuy</a>
+              <a href="#" class="btn btn-primary btn-filled" target="_blank">Purchase Minibuy</a>
+               -->
+            </div>
+          </div><!--end of row-->
+        </div><!--end of container-->
+      </section>
+<a name="miaodian" id="miaodian"></a>
+<div class="container text-left">    
+  <h3>Online Shopping Policy</h3><br>
+ <br>
+               <br>
+                <strong>声明：</strong>本网购平台所销售商品，商家必须提供产品资质，销售许可证，符合美国法律的文件证书，为了保护客户的利益，每一笔交易，商家和客户都100%对交易信息可查，一切在美国法律认可的制度下，公正公平的进行交易。comforx是美国政府认可的软件公司，100%保留平台研发和运行权利，如果您有任何问题，<strong>请联系project@comforx.us 或致电 1-626-476-5378</strong>，谢谢！
+<br>
+    <strong>政策：1客户利益：</strong>商家发布新产品需要系统验证，提供合法资质并严格过滤非法产品，如果客户购买到非法产品，可以直接投诉商家，同时本系统将冻结商家销售行为，无条件退款给客户，同时，本系统将协助客户争取客户权益，提供法律诉讼帮助，无条件争取客户的损失赔偿权益，并将肇事商家厂家列为永久黑名单。
+                <br>
+                <strong>政策：2退货须知：</strong>所有在本平台购买的产品如果发现质量问题，从收到起7天内无条件退货，3个月内无条件包换。
+                <br>
+                <strong>政策：3邮费须知：</strong>美国地区邮费统一为$8.88, 夏威夷地区$18，一次性购买59$包邮。
+                <br>
+                <strong> 政策：4客服电话：</strong>626-476-5378， 7天24小时在线。
+                <br>
+                <strong>政策：5平台须知：</strong>本软件平台业务提供 为商城模式，商家摆货，顾客消费。入驻商家必须拥有美国政府认可的销售许可证和产品制造证书.
+                <br>
+                <strong>政策：6隐私政策：</strong>商家在本平台的购物信息记录，客户资料信息遵循美国NDA 
+                协议，如果资料非不可抗拒或商业目的外流，comforx无条件赔偿客户损失。
+                 <br>
+                <strong>政策：7交易政策：</strong>本平台currency为USD "$", 请顾客注意，日后开启CNY，会及时通知大家。
+                 <br>
+                <strong>政策：8安全政策：</strong>本平台开启组件日志模式，登陆加密，访问加密，数据库加密，MD5组合加密，数据库热备，ssl认证，防注入设置，更好的保护顾客的信息安全。
+<br><br><br><br>POLICY FOR ENGLISH<br>
+<strong>Return & Exchanges Policy</strong>
+We will only accept returns and exchange for items in an 'as good as new' condition.
+Items can be returned within 7 days of receipt of shipment in most cases. Some products have different policies or requirements associated with them.
+You are responsible for shipping charges back to our facility.
+<br>
+<br>
+<strong>Shipping Methods & Charges</strong>
+We offer UPS and USPS standard shipping in the U.S., all the time.
+We offer free shipping with $ 59.00 minimum purchase.
+<br>
+Sorry, at this time we do not ship to P.O. or APO / FPO boxes.
+<br>
+<br>
+<strong>Customer Service Hours </strong>
+Monday - Friday:
+<br>
+8 AM - 8 PM (EST)
+<br>
+Saturday - Sunday:
+<br>
+9 AM - 2 PM (EST)
+<br>
+project@comforx.us
+<br>
+626-476-5378
+<br>
+<br>
+<strong>Platform Notes</strong>
+Our website provide a selling platform for sellers and consumers. 
+The business model will creates value by facilitating exchanges between the sellers and consumers.
+The third party sellers must have a sells permit or manufacturing certification which is approved by the U.S. Government. 
+<br>
+<br>
+    <strong>Privacy Policy</strong>
+We respects your privacy and follow the US Non-Disclosure Agreement.
+We do not discuss or disclose customer's data and information to any third parties. 
+
+<br>
+<br>
+    <strong>Security Policy</strong>
+   Our system support MD5, hot backup, SSL, anti VVS, prepare to make safe for the each transaction.
+     
+<br>
+<br>
+    <strong>Currency Policy</strong>
+    Our system support USD currency
+
+    </div>
+
+
+
+   
+ 
+{include file="goods/footer.mnb"}

@@ -1,0 +1,52 @@
+
+{include file="goods/header.mnb"}
+      <header class="fullscreen-element no-pad centered-text">
+        <div class="background-image-holder parallax-background overlay">
+          <img class="background-image" alt="Background Image"src="img/medical.jpg" >
+        </div>
+        <div class="container align-vertical">
+          <div class="row">
+            
+            <div class="col-md-12 text-center">
+              
+               <form class="form-inline" role="form" methoed="get" action="search.php">
+                 <input type="text" size="30" class="form-control" id="input" name="input" placeholder='{$lang['language']['input']}'/>
+                </br>
+                <button type="submit" class="btn btn-default"><font size="3" color="white">{$lang['language']['search']}</font></button>
+              </form>
+              <!--
+              <a target="_blank" href="#" class="btn btn-primary btn-white">Customize Minibuy</a>
+              <a href="#" class="btn btn-primary btn-filled" target="_blank">Purchase Minibuy</a>
+               -->
+            </div>
+          </div><!--end of row-->
+        </div><!--end of container-->
+     </header>
+
+
+
+ <<a name="miaodian" id="miaodian"></a>
+ <div class="container text-center">    
+  <h3>Online Shopping</h3><br>   
+  <h3>Pay Info</h3><br>
+  <div class="row">
+    <div class="well">
+    Pay Successful:
+    Pay Id:{$paypalId}
+    <br>
+     {foreach from=$payInfo key=k1 item=v1}
+              <div class="form-group"> 
+                <label for="payInfo" class="col-sm-2 control-label">{$lang['payInfo']['payInfo']}</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="payInfo{$k1}" name="payInfo{$k1}" value="{$v1}">
+                </div>
+              </div>
+      {/foreach}
+    <br>
+    Pay Amount:${$payTotal}
+    </div>
+  </div>
+</div><br>
+   
+ 
+{include file="goods/footer.mnb"}

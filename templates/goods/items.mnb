@@ -1,0 +1,130 @@
+
+{include file="goods/header.mnb"}
+
+        <section class="no-pad login-page fullscreen-element">      
+        <div class="background-image-holder">
+          <img class="background-image" alt="Poster Image For Mobiles" src="img/medical.jpg">
+        </div> 
+        
+        <div class="container align-vertical">
+          <div class="row">
+            
+            <div class="col-md-12 text-center">
+              
+               <form class="form-inline" role="form" methoed="get" action="search.php">
+                 <input type="text" size="30" class="form-control" id="input" name="input" placeholder='{$lang['language']['input']}'/>
+                </br> </br>
+                <button type="submit" class="btn btn-default"><font size="3" color="white">{$lang['language']['search']}</font></button>
+              </form>
+              <!--
+              <a target="_blank" href="#" class="btn btn-primary btn-white">Customize Minibuy</a>
+              <a href="#" class="btn btn-primary btn-filled" target="_blank">Purchase Minibuy</a>
+              -->
+            </div>
+          </div><!--end of row-->
+        </div><!--end of container-->
+      </section>
+<a name="miaodian" id="miaodian"></a>
+ <div class="container text-center">    
+  <h3>Online Shopping</h3><br>
+  <h3>Items List</h3><br>
+  <div class="row">
+    {foreach from=$itemList key=k item=v}
+  
+     <div id="hook" class="col-sm-6 " style="border:5px solid #000; border-radius:22px;" >
+     <a class="login-btn btn-filled" href="item.php?iid={$v->{'iid'}}&language={$_GET['language']}&email={$_GET['email']}&key={$_GET['key']}&link={$_GET['link']}&count={$v->{'count'}}">
+      <img id="change" src={$v->{'imgSmall'}} class="img-responsive center-block" style="border:2px black dashed; border-radius:12px; height:120px" alt="Image">
+         </a>
+                  <input type="hidden" name="language" value="{$_GET['language']}">
+                  <input type="hidden" name="iid" value="{$v->{'iid'}}">
+                  New price:$<font size="3" color="red">{$v->{'newprice'}}</font>
+                  <br>
+                  Name:{$v->{'iname'}}
+                  <br>
+                  English name:{$v->{'iename'}}
+                  <br>
+                  Surplus Numbers:{$v->{'count'}}
+                  <br>
+                  <a class="login-btn btn-filled" href="item.php?iid={$v->{'iid'}}&language={$_GET['language']}&email={$_GET['email']}&key={$_GET['key']}&link={$_GET['link']}&count={$v->{'count'}}">{$lang['items']['CheckItemInfo']}</a>
+                  <br>
+                  <button  onclick="addToCart('{$v->{'iid'}}','{$_GET['key']}','{$v->{'count'}}')"> {$lang['items']['AddtoCart']}</button>
+      
+     </div>  
+
+
+    {/foreach}
+  <script>
+        function addToCart(iid,key,count)
+        { 
+          alert("addToCart");
+          //add to cart
+          if(count > 0)
+          {
+              if(key=='')
+              {
+                //jump to login 
+                window.location.href='login.php?iid='+iid+"&link=addToCart.php"; // 跳转到B目录
+              }
+                  $.get("addToCart.php","iid="+iid+"&key="+key,function(data)
+                    {
+                    alert("added");
+                    });
+          }else{
+               alert("error, out of stock");
+          } 
+        }
+  </script>
+<div class="col-sm-4" style="border:5px solid #000; border-radius:22px;" >
+                  <br>{$lang['page']['totalpages']}:{$totalPage}
+                  <br>{$lang['page']['currentPages']}:{$currentPage}
+                  <br>
+                  <button  onclick="goPrevPage('{$_GET['vid']}','{$_GET['cid']}','{$_GET['key']}','{$_GET['type']}','{$currentPage}','{$totalPage}')">PREV Page</button>
+                  <button  onclick="goNextPage('{$_GET['vid']}','{$_GET['cid']}','{$_GET['key']}','{$_GET['type']}','{$currentPage}','{$totalPage}')">NEXT Page</button>
+                  <br>
+                  <br>{$lang['page']['inputpagenumber']}:
+                  <input type="text"  id="pageInput" name="pageInput" value="{$currentPage}">
+                  <button  onclick="goPage('{$_GET['cid']}','{$_GET['key']}','{$_GET['type']}')"> {$lang['button']['ClickandGotoPage']}</button>
+            
+ </div>
+<script>
+        function goPage(cid,key,type)
+        { 
+          alert("goPage");
+          var page= document.getElementById("pageInput").value;
+          //alert(page);
+          //alert(key);
+          window.location.href="items.php?page="+page+"&cid="+cid+"&type="+type+"&language={$_GET['language']}&link=items.php&key="+key+"&email={$email}"
+
+        }
+         function goPrevPage(vid,cid,key,type,page,total)
+        { 
+          alert("goPrevPage");
+          page=page-1;
+          if(page<=0)
+          {
+            page=0;
+          }
+          //alert(page);
+          //alert(key);
+          window.location.href="items.php?page="+page+"&vid="+vid+"&cid="+cid+"&type="+type+"&language={$_GET['language']}&link=items.php&key="+key+"&email={$email}"
+
+        }
+         function goNextPage(vid,cid,key,type,page,total)
+        { 
+          alert("goNextPage");
+          page=parseInt(page)+1;
+          if(page>=total)
+          {
+            page=total;
+          }
+          //alert(page);
+          //alert(key);
+          window.location.href="items.php?page="+page+"&vid="+vid+"&cid="+cid+"&type="+type+"&language={$_GET['language']}&link=items.php&key="+key+"&email={$email}"
+
+        }
+  </script>
+  </div>
+ </div>
+</div>
+  
+{include file="goods/footer.mnb"}

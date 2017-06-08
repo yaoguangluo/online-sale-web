@@ -1,0 +1,29 @@
+{include file="goods/header.mnb"}
+<div class="main-container">
+ 
+      <section class="no-pad login-page fullscreen-element">      
+        <div class="background-image-holder">
+          <img class="background-image" alt="Poster Image For Mobiles" src="img/medical.jpg">
+        </div> 
+        <div class="container align-vertical" style="top:40px">
+          <div class="row">
+            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 text-center">
+              <h1 class="text-white">{$lang['login']['continue']}</h1>
+              <div class="photo-form-wrapper clearfix">
+                <form role="form" action="loginCheck.php" method='post'>
+                  <input type="hidden" name="language" value="{$_GET['language']}">
+                  <input type="hidden" name="link" value="{$link}">
+                  <input type="hidden" name="iid" value="{$iid}">
+                  <input class="form-email" type="text" name="text" placeholder='{$lang["email"]["address"]}'>
+                  <input class="form-password" type="password" name="password" placeholder="{$lang['email']['password']}">
+                  <input class="login-btn btn-filled" type="submit" value="{$lang['language']['login']}">
+                </form>
+              </div><!--end of photo form wrapper-->
+              <a href="register.php?language={$_GET['language']}&link=register.php" class="text-white">{$lang['login']['register']} ➞</a><br>
+              <a href="findPassword.php?language={$_GET['language']}&link=findPassword.php" class="text-white">{$lang['login']['forgotPassword']}</a>
+            </div>
+          </div><!--end of row-->
+        </div><!--end of container-->
+      </section>
+    </div>  
+{include file="goods/footer.mnb"}

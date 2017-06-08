@@ -1,0 +1,111 @@
+{include file="goods/header.mnb"}
+     <section class="no-pad login-page fullscreen-element">      
+        <div class="background-image-holder">
+          <img class="background-image" alt="Poster Image For Mobiles" src="img/medical.jpg">
+        </div> 
+        
+        <div class="container align-vertical">
+          <div class="row">  
+            <div class="col-md-12 text-center">
+              <form class="form-inline" role="form" methoed="get" action="search.php">
+                 <input type="text" size="30" class="form-control" id="input" name="input" placeholder='{$lang['language']['input']}'/>
+                </br> </br>
+                <button type="submit" class="btn btn-default"><font size="3" color="white">{$lang['language']['search']}</font></button>
+              </form>
+              <!--
+              <a target="_blank" href="#" class="btn btn-primary btn-white">Customize Minibuy</a>
+              <a href="#" class="btn btn-primary btn-filled" target="_blank">Purchase Minibuy</a>
+              -->
+            </div>
+          </div><!--end of row-->
+        </div><!--end of container-->
+      </section>
+
+ <a name="miaodian" id="miaodian"></a>
+ <div class="container text-center">    
+  <h3>Online Shopping</h3><br> 
+  <h3>Pay Info</h3><br>
+  <div class="row">
+     <div class="col-sm-13" style="border:1px solid #00F" >
+            <br>
+            payInfo:{$payInfo} 
+            <br>
+            subTotal:${$subTotal}
+            <br>
+            Tax:${$tax}
+            <br>
+            Ship fee:${$ship}
+            <br>
+            Total:${$total}
+     </div>
+     
+    {foreach from=$cardList key=k item=v}
+     <div class="col-sm-4" style="border:5px solid #000" >
+          <!--<form id="form{$k}">-->
+                  Card Info:{$k}
+                  <br>
+                  CardNumber:<input type="text"  id="cardNumber{$k}" name="cardNumber{$k}" value={$v->{'cardNumber'}}>
+                  <br>
+                  CardType:<input type="text"  id="cardType{$k}" name="cardType{$k}" value={$v->{'cardType'}}>
+                  <br>
+                  Address:<input type="text"  id="address{$k}" name="address{$k}" value={$v->{'address'}}>
+                  <br>
+                  City:<input type="text"  id="city{$k}" name="city{$k}" value={$v->{'city'}}>
+                  <br>
+                  State:<input type="text"  id="state{$k}" name="state{$k}" value={$v->{'state'}}>
+                  <br>
+                  CountryCode:<input type="text"  id="countryCode{$k}" name="countryCode{$k}" value={$v->{'countryCode'}}>
+                  <br>
+                  PostalCode:<input type="text"  id="postalCode{$k}" name="postalCode{$k}" value={$v->{'postalCode'}}>
+                  <br>
+                  ExpireMonth:<input type="text"  id="expireMonth{$k}" name="expireMonth{$k}" value={$v->{'expireMonth'}}>
+                  <br>
+                  ExpireYear:<input type="text"  id="expireYear{$k}" name="expireYear{$k}" value={$v->{'expireYear'}}>
+                  <br>
+                  FirstName:<input type="text"  id="firstName{$k}" name="firstName{$k}" value={$v->{'firstName'}}>
+                  <br>
+                  LastName:<input type="text"  id="lastName{$k}" name="lastName{$k}" value={$v->{'lastName'}}>
+                  <br>
+                  Cvv:<input type="text"  id="cvv{$k}" name="cvv{$k}" value={$v->{'cvv'}}>
+                  <br>
+                  <button  onclick="doPayment('{$k}','{$payInfo}','{$subTotal}','{$tax}','{$ship}','{$total}','{$_GET['key']}')">Final Pay</button>
+          <!--</form>-->
+     </div>
+    {/foreach}
+
+    <div class="col-sm-4" style="border:5px solid #000" >
+          <!--<form id="form{$k}">-->
+                  Make a New Card to Pay 
+                  <br>
+                  CardNumber:<input type="text"  id="cardNumber9999" name="cardNumber9999" value="">
+                  <br>
+                  CardType:<input type="text"  id="cardType9999" name="cardType9999" value="">
+                  <br>
+                  CardAddress:<input type="text"  id="address9999" name="address9999" value="">
+                  <br>
+                  City:<input type="text"  id="city9999" name="city9999" value="">
+                  <br>
+                  State:<input type="text"  id="state9999" name="state9999" value="">
+                  <br>
+                  CountryCode:<input type="text"  id="countryCode9999" name="countryCode9999" value="">
+                  <br>
+                  PostalCode:<input type="text"  id="postalCode9999" name="postalCode9999" value="">
+                  <br>
+                  ExpireMonth:<input type="text"  id="expireMonth9999" name="expireMonth9999" value="">
+                  <br>
+                  ExpireYear:<input type="text"  id="expireYear9999" name="expireYear9999" value="">
+                  <br>
+                  FirstName:<input type="text"  id="firstName9999" name="firstName9999" value="">
+                  <br>
+                  LastName:<input type="text"  id="lastName9999" name="lastName9999" value="">
+                  <br>
+                  CVV Number:<input type="text"  id="cvv9999" name="cvv9999" value="">
+                  <br>
+                  <button  onclick="doPayment('9999','{$payInfo}','{$subTotal}','{$tax}','{$ship}','{$total}','{$_GET['key']}')">Final Pay</button>
+          <!--</form>-->
+     </div>
+
+ </div>
+</div>
+ 
+{include file="goods/footer.mnb"}

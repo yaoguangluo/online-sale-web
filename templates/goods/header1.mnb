@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">        
+        <title>USA California L.A Online Shopping 美国加州洛杉矶网店</title>
+        <link rel="icon" href="img/logo.png" type="image/x-icon" />
+        <meta name="google-site-verification" content="giPCONSGQ9OAqCkJf3EWFwDo187LHE1KDu_UQyx2tv4" />
+         <meta name="Keywords" content="美国,华人,留学生,华人生活购物,网上超市,中国零食,亚洲零食,美国零食,日本零食,在线蔬菜水果,北美华人超市,美国中国超市,美国折扣打折,美国购物,maifresh, asian snack,online shopping"/>
+        <meta name="description" content="{$lang['language']['title']}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="css/flexslider.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="css/line-icons.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="css/elegant-icons.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="css/lightbox.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="css/theme.css" rel="stylesheet" type="text/css" media="all"/>
+       <link href="css/custom.css" rel="stylesheet" type="text/css" media="all"/>
+        <!--[if gte IE 9]>
+            <link rel="stylesheet" type="text/css" href="css/ie9.css" />
+        <![endif]-->
+         <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700' rel='stylesheet' type='text/css'>-->
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+    <!--<script src="https://www.youtube.com/iframe_api"></script>-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.plugin.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.flexslider-min.js"></script>
+        <script src="js/smooth-scroll.min.js"></script>
+        <script src="js/skrollr.min.js"></script>
+      <script src="js/spectragram.min.js"></script>
+        <script src="js/scrollReveal.min.js"></script>
+       <script src="js/isotope.min.js"></script>
+       <script src="js/twitterFetcher_v10_min.js"></script>
+        <script src="js/lightbox.min.js"></script>
+        <script src="js/jquery.countdown.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <style type="text/css">
+          
+        </style>
+         {$miaodian}
+         <script language='javascript'>window.location.href='#miaodian'</script>
+         <script language="javascript">
+            function pay(key,email,language,currentPage)
+            { 
+              alert("ready to pay");
+              //alert(cartId);
+              //alert(key);
+              if(key=='')
+              {
+                //jump to login 
+                window.location.href='login.php'; // 跳转到B目录
+              }
+              //add to cart
+              //alert({$_GET['currentPage']});
+              //alert({$currentPage});
+              //alert(currentPage);
+              window.location.href="pay.php?key="+key+"&link=pay.php&email="+email+"&language="+language+"&currentPage="+currentPage;
+           }
+
+          function doPayment(k,payInfo,subTotal,tax,ship,total,key,email,language)
+          {
+             //alert(language);
+             //alert(k);
+             //alert(payInfo);
+             //alert(subTotal);
+             //alert(tax);
+             //alert(ship);
+             //alert(total);
+             //alert(key);
+             payInfo=encodeURIComponent(payInfo);
+             email=encodeURIComponent(email);
+             var cardNumber= document.getElementById("cardNumber"+k).value;
+            // alert(cardNumber);
+             var cardType= document.getElementById("cardType"+k).value;
+             //alert(cardType);
+             var address= document.getElementById("address"+k).value;
+             address=encodeURIComponent(address);
+            // alert(address);
+             var city= document.getElementById("city"+k).value;
+            // alert(city);
+             var state= document.getElementById("state"+k).value;
+            // alert(state);
+             var countryCode= document.getElementById("countryCode"+k).value;
+            // alert(countryCode);
+             var postalCode= document.getElementById("postalCode"+k).value;
+            // alert(postalCode);
+             var expireMonth= document.getElementById("expireMonth"+k).value;
+            // alert(expireMonth);
+             var expireYear= document.getElementById("expireYear"+k).value;
+            // alert(expireYear);
+             var firstName= document.getElementById("firstName"+k).value;
+            // alert(firstName);
+             var lastName= document.getElementById("lastName"+k).value;
+            // alert(lastName);
+             var currency= document.getElementById("currency"+k).value;
+            // alert(currency);
+             var cvv= document.getElementById("cvv"+k).value;
+
+             var shippingAddress= document.getElementById("shippingAddress"+k).value;
+
+             shippingAddress=encodeURIComponent(shippingAddress);
+
+             // alert(shippingAddress);
+             //  alert(payInfo);
+              // window.location.href="payCheck.php";
+               //window.location.href="payCheck.php?key="+key+"&link=pay.php&email="+email+"&language="+language;
+              // window.location.href="payCheck.php?key="+key+"&link=pay.php&email="+email+"&language="+language+"&cardNumber="+cardNumber+"&cardType="+cardType+"&address="+address+"&city="+city+"&state="+state+"&countryCode="+countryCode;
+             //window.location.href="payCheck.php";
+            var str="payCheck.php?key="+key+"&link=pay.php&email="+email+"&language="+language+"&cardNumber="+cardNumber+"&cardType="+cardType+"&address="+address+"&city="+city+"&state="+state+"&countryCode="+countryCode+"&postalCode="+postalCode+"&expireMonth="+expireMonth+"&expireYear="+expireYear+"&firstName="+firstName+"&lastName="+lastName+"&cvv="+cvv+"&payInfo="+payInfo+"&subTotal="+subTotal+"&tax="+tax+"&shipping="+ship+"&total="+total+"&currency="+currency+"&shippingAddress="+shippingAddress;
+             alert(str);  
+            window.location.href=str;
+          }
+        </script>
+    </head>
+    <body>  
+   
+       <div class="loader">
+        <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+      </div>
+
+
+
+
+        <div class="nav-container">
+            <nav class="top-bar overlay-bar">
+                <div class="container">      
+                    <div class="row utility-menu">
+                        <div class="col-sm-12">
+                            <div class="utility-inner clearfix">
+                                <a href="#"><font size="3" color="white">{$lang['login']['hello']} {$email}</font></a>
+                                <div class="pull-right">
+<!--
+{if $email==""}
+<!--
+<a href="login.php?language={$_GET['language']}&link=login.php&key={$key}&email={$email}" class="btn btn-primary login-button btn-xs">{$lang['language']['login']}</a>
+--><!--
+{else}
+<a href="logout.php?language={$_GET['language']}&link=logout.php&key={$key}&email={$email}" class="btn btn-primary login-button btn-xs">{$lang['language']['logout']}</a>
+{/if}
+-->
+                                     <a href="policy.php?language={$_GET['language']}&link=policy.php" class="btn btn-primary btn-filled btn-xs">Policy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end of row-->
+
+                    <div class="row nav-menu">
+                        <div class="col-sm-3 col-md-2 columns">
+                        <a href="index.php?language={$_GET['language']}&link={$_GET['link']}&key={$_GET['key']}&email={$_GET['email']}">
+                                <img class="logo logo-light" alt="Logo" src="img/logo-light.png">
+                                <img class="logo logo-dark" alt="Logo" src="img/logo-dark.png">
+                            </a>
+                        </div>
+                        <div class="col-sm-9 col-md-10 columns">
+                            <ul class="menu">
+                                 <li class="has-dropdown"><a href="#">{$lang['language']['category']}</a>
+                                    <div class="subnav subnav-fullwidth">
+                                        <div class="col-md-3">
+                                            <h6 class="alt-font">{$lang['cat']['food']}</h6>
+                                            <ul class="subnav">
+                                                <li><a href="items.php?page=0&cid=13&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['Lo']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=23&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['Snacks']}</a>
+                                                </li>
+                                            </ul>   
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <h6 class="alt-font">{$lang['cat']['stationery']}</h6>
+                                            <ul class="subnav">
+                                                <li><a href="items.php?page=0&cid=10&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['stationery']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=9&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['book']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=1&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['video']}</a>
+                                                </li>  
+                                                <li><a href="items.php?page=0&cid=16&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['Toy']}</a>
+                                                </li>    
+                                            </ul>   
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h6 class="alt-font">{$lang['cat']['Halloween']}</h6>
+                                            <ul class="subnav">
+                                                <li><a href="items.php?page=0&cid=2&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['Halloweencostumes']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=12&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['pants']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=3&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['Halloweenstockings']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=4&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['Halloweenhat']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=5&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['Halloweenpumpkin']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=6&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['Halloweenmask']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=7&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['Halloweenshoes']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=22&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['bag']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=20&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}">{$lang['cat']['cosmetic']}</a>
+                                                </li>
+                                            </ul>   
+                                        </div>
+                                    <div class="col-md-3">
+                                            <h6 class="alt-font">{$lang['cat']['Supplies']}</h6>
+                                            <ul class="subnav">
+                                                <li><a href="items.php?page=0&cid=19&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}"><img src= "img/19.png"/>{$lang['cat']['BuildingSupplies']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=15&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}"><img src= "img/15.png"/>{$lang['cat']['household']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=11&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}"><img src= "img/11.png"/>{$lang['cat']['medicine']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=14&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}"><img src= "img/14.png"/>{$lang['cat']['car']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=21&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}"><img src= "img/21.png"/>{$lang['cat']['Jewelry']}</a>
+                                                </li>
+                                                <li><a href="items.php?page=0&cid=8&type=1&language={$_GET['language']}&link=items.php&key={$key}&email={$email}"><img src= "img/8.png"/>{$lang['cat']['OnlineShoppingWebsite']}</a>
+                                                </li>
+                                            </ul>   
+                                        </div>
+                                        
+                                    </div>
+                                </li>
+
+                                <li class="has-dropdown"><a href="#">{$lang['language']['language']}</a>
+                                    <div class="subnav subnav-fullwidth">
+                                        <div class="col-md-3">
+                                           <h6 class="alt-font">{$lang['language']['language']}</h6>
+                                            <ul class="subnav">
+    <li><img src= "img/cn.png" height="16" width="25"/> 
+    <a href='{$_GET['link']}?language={$CFG['main']['webSite']['chinese']}&link={$_GET['link']}&key={$key}&email={$email}'>{$lang['language']['chinese']}</a></li>  
+    <li><img src= "img/um.png" height="16" width="25"/>
+    <a href='{$_GET['link']}?language={$CFG['main']['webSite']['english']}&link={$_GET['link']}&key={$key}&email={$email}'>{$lang['language']['english']}</a></li>
+    <li>
+    <a href='{$_GET['link']}?language={$CFG['main']['webSite']['Arabic']}&link={$_GET['link']}&key={$key}&email={$email}'>{$lang['language']['Arabic']}</a></li>      
+    <li>
+    <a href='{$_GET['link']}?language={$CFG['main']['webSite']['french']}&link={$_GET['link']}&key={$key}&email={$email}'>{$lang['language']['french']}</a></li>    
+    <li>
+    <a href='{$_GET['link']}?language={$CFG['main']['webSite']['german']}&link={$_GET['link']}&key={$key}&email={$email}'>{$lang['language']['german']}</a></li>   
+    <li>
+    <a href='{$_GET['link']}?language={$CFG['main']['webSite']['hindi']}&link={$_GET['link']}&key={$key}&email={$email}'>{$lang['language']['hindi']}</a></li>
+    <li>
+    <a href='{$_GET['link']}?language={$CFG['main']['webSite']['Japanese']}&link={$_GET['link']}&key={$key}&email={$email}'>{$lang['language']['Japanese']}</a></li> 
+    <li>
+    <a href='{$_GET['link']}?language={$CFG['main']['webSite']['korean']}&link={$_GET['link']}&key={$key}&email={$email}'>{$lang['language']['korean']}</a></li>
+    <li>
+    <a href='{$_GET['link']}?language={$CFG['main']['webSite']['spanish']}&link={$_GET['link']}&key={$key}&email={$email}'>{$lang['language']['spanish']}</a></li>
+    <li>
+    <a href='{$_GET['link']}?language={$CFG['main']['webSite']['Swiss']}&link={$_GET['link']}&key={$key}&email={$email}'>{$lang['language']['Swiss']}</a></li>
+    <li>
+    <a href='{$_GET['link']}?language={$CFG['main']['webSite']['Thai']}&link={$_GET['link']}&key={$key}&email={$email}'>{$lang['language']['Thai']}</a></li>
+    <li>
+    <a href='{$_GET['link']}?language={$CFG['main']['webSite']['Turkish']}&link={$_GET['link']}&key={$key}&email={$email}'>{$lang['language']['Turkish']}</a></li>
+    <li>
+    <a href='{$_GET['link']}?language={$CFG['main']['webSite']['Vietnamese']}&link={$_GET['link']}&key={$key}&email={$email}'>{$lang['language']['Vietnamese']}</a></li>
+
+                                            </ul>   
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="has-dropdown"><a href="#">{$lang['language']['cart']}</a>
+                                    <div class="subnav subnav-fullwidth">
+                                        <div class="col-md-3">
+                                           <h6 class="alt-font">{$lang['language']['cart']}</h6>
+                                            <ul class="subnav">
+                                                <li><a class="btn btn-primary login-button btn-xs" href="cart.php?currentPage=0&language={$_GET['language']}&link=cart.php&key={$key}&email={$email}">{$lang['language']['cart']}</a></li>
+                                              <!--  <li><button class="btn btn-primary login-button btn-xs" onclick="pay('{$_GET['key']}','{$email}','{$_GET['language']}','0')"> Pay for Cart</button></li>  
+                                                <li><a class="btn btn-primary login-button btn-xs" href="checkPay.php?currentPage=0&language={$_GET['language']}&link=checkPay.php&key={$key}&email={$email}">Check Pay Info</a></li> -->  
+                                            </ul>   
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="has-dropdown"><a href="#">{$lang['language']['login']}</a>
+                                    <div class="subnav subnav-fullwidth">
+                                        <div class="col-md-3">
+                                           <h6 class="alt-font">{$lang['language']['login']}</h6>
+                                            <ul class="subnav">
+                                                <li>
+                                                    <a href="login.php?language={$_GET['language']}&link=login.php&key={$key}&email={$email}" >{$lang['language']['login']}</a>      
+                                                </li>
+<li>
+<a href="logout.php?language={$_GET['language']}&link=logout.php&key={$key}&email={$email}" >{$lang['language']['logout']}</a>
+<li>
+<li>
+<a href="register.php?language={$_GET['language']}&link=register.php" >{$lang['language']['register']}</a>
+</li>
+<li>
+<a href="changePassword.php?language={$_GET['language']}&link=changePassword.php" >{$lang['email']['changePassword']}</a>
+</li>
+
+                                            </ul>   
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <ul class="social-icons text-right">
+                                <li>
+                                    <a href="#">
+                                        <i class="icon social_twitter"></i>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="#">
+                                        <i class="icon social_facebook"></i>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="#">
+                                        <i class="icon social_instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!--end of row-->
+                    
+                    <div class="mobile-toggle">
+                        <i class="icon icon_menu"></i>
+                    </div>
+                    
+                </div><!--end of container-->
+            </nav>
+        </div>
